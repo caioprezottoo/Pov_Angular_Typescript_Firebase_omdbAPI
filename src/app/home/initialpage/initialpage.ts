@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Text } from '../../components/text/text';
+import { Button } from '../../components/button/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-initialpage',
-  imports: [],
+  standalone: true,
+  imports: [Text, Button, MatButtonModule],
   templateUrl: './initialpage.html',
-  styleUrl: './initialpage.css',
 })
 export class Initialpage {
   constructor(private router: Router) { }
 
-  goToLogin(){
+  goToLogin() {
     this.router.navigate(['login'])
   }
-  goToSignup(){
+  goToSignup() {
     this.router.navigate(['signup'])
   }
 }
