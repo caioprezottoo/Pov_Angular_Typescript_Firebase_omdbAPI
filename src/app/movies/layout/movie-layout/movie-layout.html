@@ -1,0 +1,13 @@
+<div class=" flex flex-col items-center min-h-80 justify-center">
+    <h1 class="text-center">Movie Layout</h1>
+    <div class="flex mt-4 gap-5">
+        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToExplore()">Go to Explore</button>
+        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToReviewed()">Go to
+            Reviewed</button>
+        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToWatchList()">Go to
+            WatchList</button>
+        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToProfile()">Go to Profile</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
