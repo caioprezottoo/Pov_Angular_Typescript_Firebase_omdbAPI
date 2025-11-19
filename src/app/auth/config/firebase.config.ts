@@ -1,18 +1,13 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+// firebase.config.ts
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyANuRFP7MTp_3i1I8UJMLanFLFKmixDgAw",
-    authDomain: "point-of-view-f0117.firebaseapp.com",
-    projectId: "point-of-view-f0117",
-    storageBucket: "point-of-view-f0117.firebasestorage.app",
-    messagingSenderId: "796523963207",
-    appId: "1:796523963207:web:fa2b33eb9427881deb6262"
+    apiKey: "AIzaSyAHHfkDQnZBpIqg6JSxsbKaU2FJGmP351k",
+    authDomain: "point-of-view-angular.firebaseapp.com",
+    projectId: "point-of-view-angular",
+    storageBucket: "point-of-view-angular.firebasestorage.app",
+    messagingSenderId: "388696729152",
+    appId: "1:388696729152:web:c3dbd66855a89345dce1a5"
 };
 
-const app = initializeApp(firebaseConfig);
-
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export default app;
+export const firebaseApp = initializeApp(firebaseConfig);

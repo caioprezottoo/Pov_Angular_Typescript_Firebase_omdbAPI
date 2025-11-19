@@ -1,11 +1,14 @@
 export const TEXT_VARIANTS: { [key: string]: string } = {
+    // Montserrat
     "m-text-xs": "font-montserrat font-medium text-[10px]",
     "m-text-sm": "font-montserrat font-medium text-[15px]",
     "m-text-lg": "font-montserrat font-bold text-[43px]",
     "m-text-xl": "font-montserrat font-bold text-[64px] sm:text-[72px] lg:text-[82px]",
+    // Lato
     "l-text-sm": "font-lato text-[10px]",
     "l-text-md": "font-lato text-[15px]",
     "l-text-lg": "font-lato opacity-78 text-[17px] sm:text-[19px] lg:text-[20px]",
+    // Dm Sans
     "dm-text-xs": "font-dmsans font-bold text-xs",
     "dm-text-sm": "font-dmsans font-medium text-[12px] sm:text-[14px] lg:text-[15px]",
     "dm-text-md": "font-dmsans font-bold text-[28px]",

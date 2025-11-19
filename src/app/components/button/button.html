@@ -1,5 +1,4 @@
-<button
-    class="cursor-pointer rounded-2xl active:scale-[0.975] transition-transform duration-300 hover:scale-105"
-    [ngClass]="combinedClasses">
+<button class="cursor-pointer rounded-2xl active:scale-[0.975] transition-transform duration-300 hover:scale-105"
+    [ngClass]="combinedClasses" (click)="handleClick()">
     <ng-content></ng-content>
 </button>

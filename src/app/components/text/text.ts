@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 import { TEXT_VARIANTS } from './text-variants';
 
 @Component({
-  selector: 'Text',
+  selector: 'CustomText',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './text.html',
 })
-export class Text {
+export class CustomText {
   @Input() variant: string = 'm-text-xs';
+  @Input() extraClasses: string = ''
 
-  get classes(): string {
-    return TEXT_VARIANTS[this.variant] || '';
-  }
+  get combinedClasses(): string[] {
+      return [
+        TEXT_VARIANTS[this.variant] || '',
+        this.extraClasses
+      ];
+    }
 }

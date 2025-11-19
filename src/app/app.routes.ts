@@ -2,7 +2,7 @@
 import { Routes } from '@angular/router';
 import { Initialpage } from './home/initialpage/initialpage';
 import { Login } from './auth/pages/login/login';
-import { Singup } from './auth/pages/singup/singup';
+import { Signup } from './auth/pages/signup/signup';
 import { Explore } from './movies/pages/explore/explore';
 import { MovieLayout } from './movies/layout/movie-layout/movie-layout';
 import { Reviewed } from './movies/pages/reviewed/reviewed';
@@ -12,7 +12,7 @@ import { Profile } from './profile/pages/profile/profile';
 export const routes: Routes = [
     { path: '', component: Initialpage },
     { path: 'login', component: Login },
-    { path: 'signup', component: Singup },
+    { path: 'signup', component: Signup },
     {
         path: 'movies',
         component: MovieLayout,

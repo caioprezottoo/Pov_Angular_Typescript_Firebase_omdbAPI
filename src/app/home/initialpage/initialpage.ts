@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Text } from '../../components/text/text';
-import { Button } from '../../components/button/button';
+import { CustomText } from '../../components/text/text';
+import { CustomButton } from '../../components/button/button';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-initialpage',
   standalone: true,
-  imports: [Text, Button, MatButtonModule],
+  imports: [CustomText, CustomButton, MatButtonModule],
   templateUrl: './initialpage.html',
 })
 export class Initialpage {

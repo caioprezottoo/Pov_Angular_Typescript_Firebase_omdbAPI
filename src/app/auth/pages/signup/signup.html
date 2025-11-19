@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-[url(/assets/svg/signupbg.svg)] bg-cover bg-center">
+    <img src="../../../../assets/svg/arrow.svg" alt="" class="absolute top-14 left-10 z-20 cursor-pointer"
+        (click)="goToInitialPage()">
+    <form class="min-h-screen flex lg:justify-start">
+        <div class="w-full flex flex-col gap-10 justify-center mx-10 sm:mx-30 lg:mx-40">
+            <CustomText variant="dm-text-lg">Let's get you started!</CustomText>
+            <div class="flex flex-col gap-3">
+                <div>
+                    <CustomText variant="l-text-md" extraClasses="ml-4">
+                        Name
+                    </CustomText>
+                    <input
+                        class="rounded-2xl focus:border focus:border-solid focus:border-gray-100 
+         text-gray-100 outline-none my-2 bg-gradient-input bg-clip-padding bg-transparent w-56 sm:w-64 lg:w-64 h-10 sm:h-12 lg:h-12 p-3 items-start self-stretch inline-flex"/>
+                </div>
+                <div>
+                    <CustomText variant="l-text-md" extraClasses="ml-4">
+                        Email
+                    </CustomText>
+                    <input
+                        class="rounded-2xl focus:border focus:border-solid focus:border-gray-100 
+         text-gray-100 outline-none my-2 bg-gradient-input bg-clip-padding bg-transparent w-56 sm:w-64 lg:w-64 h-10 sm:h-12 lg:h-12 p-3 items-start self-stretch inline-flex"/>
+                </div>
+                <div>
+                    <CustomText variant="l-text-md" extraClasses="ml-4">
+                        Password
+                    </CustomText>
+                    <input
+                        class="rounded-2xl focus:border focus:border-solid focus:border-gray-100 
+         text-gray-100 outline-none my-2 bg-gradient-input bg-clip-padding bg-transparent w-56 sm:w-64 lg:w-64 h-10 sm:h-12 lg:h-12 p-3 items-start self-stretch inline-flex" />
+                </div>
+            </div>
+            <CustomButton textVariant="m-text-sm" variant="tertiary" extraClasses="flex items-center justify-center"
+                (buttonClick)="goToMovies()">
+                <img src="../../../../assets/svg/arrowblack.svg" alt="" class="w-3">
+            </CustomButton>
+        </div>
+    </form>
+</div>

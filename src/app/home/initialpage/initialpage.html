@@ -1,22 +1,16 @@
-<!-- <h1 class="text-center">This is Initial Page</h1>
-    <div class="flex flex-col mt-4 gap-5">
-        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToLogin()">Go to Login</button>
-        <button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToSignup()">Go to Signup</button>
-    </div> -->
-
 <div class="flex flex-col items-center min-h-screen justify-center
-bg-[url(/assets/png/InitialPageBg.png)] bg-cover bg-center">
-    <img src="../../../assets/svg/logo.svg" class="mb-16" alt="Pov. logo">
+bg-[url(/assets/png/InitialPageBg.png)] bg-cover bg-center p-10">
+    <img src="../../../assets/svg/logo.svg" class="mb-8 sm:mb-14 lg:mb-16 w-16" alt="Pov. logo">
     <div class="flex flex-col items-center max-w-2xl w-full gap-12">
         <div class="flex flex-col text-center">
-            <Text variant="m-text-xl" class="animate-fadeInDown">Point of view!</Text>
-            <Text variant="l-text-lg" class="animate-fadeIn">Get ready to jump
+            <CustomText variant="m-text-xl" class="animate-fadeInDown">Point of view!</CustomText>
+            <CustomText variant="l-text-lg" class="animate-fadeIn">Get ready to jump
                 into nostalgia and exploring. Show your “pov”, review and create
-                a list of your favorite movies of all time!</Text>
+                a list of your favorite movies of all time!</CustomText>
         </div>
         <div class="flex flex-col gap-5">
-            <Button textVariant="m-text-sm" variant="primary" (click)="goToSignup()">Get Started</Button>
-            <Button textVariant="m-text-sm" variant="secondary" (click)="goToLogin()">Log in</Button>
+            <CustomButton textVariant="m-text-sm" variant="primary" (click)="goToSignup()">Get Started</CustomButton>
+            <CustomButton textVariant="m-text-sm" variant="secondary" (click)="goToLogin()">Log in</CustomButton>
         </div>
     </div>
 
