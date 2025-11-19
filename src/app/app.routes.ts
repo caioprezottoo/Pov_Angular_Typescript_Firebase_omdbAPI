@@ -19,7 +19,7 @@ export const routes: Routes = [
         children: [
             { path: 'explore', component: Explore },
             { path: 'reviewed', component: Reviewed },
-            { path: 'watchlist', component: Watchlist },
+            { path: 'watch-list', component: Watchlist },
             { path: 'profile', component: Profile },
 
         ]

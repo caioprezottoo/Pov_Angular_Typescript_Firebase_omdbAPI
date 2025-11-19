@@ -1,3 +1,19 @@
-<p>profile works!</p>
+<div class="p-6 flex flex-col items-center justify-center w-full gap-10 h-full">
+    <div class="gap-3 text-center">
+        <CustomText variant="l-text-md">
+            Name:
+        </CustomText>
+        <CustomText as="p" variant="l-text-md">
+            Email:
+        </CustomText>
+    </div>
 
-<button class="cursor-pointer bg-gray-100 text-gray-400 rounded" (click)="goToInitialPage()">Go to InitialPage</button>
+    <div class="flex flex-col gap-3">
+        <CustomButton variant="primary" (buttonClick)="logout()">
+            Logout
+        </CustomButton>
+        <CustomButton variant="quaternary" (buttonClick)="deleteAccount()">
+            Delete Account
+        </CustomButton>
+    </div>
+</div>
