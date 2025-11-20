@@ -1,4 +1,3 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { Initialpage } from './home/initialpage/initialpage';
 import { Login } from './auth/pages/login/login';
@@ -22,6 +21,11 @@ export const routes: Routes = [
             { path: 'watch-list', component: Watchlist },
             { path: 'profile', component: Profile },
 
+            {
+                path: ':id',
+                loadComponent: () =>
+                    import('./movies/pages/movie/movie').then(m => m.MoviePage)
+            }
         ]
     },
     { path: '**', redirectTo: '' }

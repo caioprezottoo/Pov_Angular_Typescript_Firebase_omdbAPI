@@ -1,0 +1,49 @@
+<div class="flex items-center p-5 w-full min-h-full lg:px-32">
+    <div *ngIf="loading" class="w-full h-96 rounded-lg animate-pulse bg-gray-300/40 border"></div>
+
+    <div *ngIf="!loading && error" class="text-white p-5">
+        {{ error }}
+    </div>
+
+    <div *ngIf="!loading && movie" class="flex gap-10 items-center lg:items-end">
+        <img [src]="movie.Poster" [alt]="movie.Title" class="rounded-lg w-full max-w-52 lg:w-64 lg:max-w-64 h-full" />
+
+        <div class="flex flex-col gap-5">
+            <img src="assets/svg/arrow.svg" class="w-4 cursor-pointer hover:scale-90 transition-transform"
+                (click)="goBack()" />
+
+            <div class="flex flex-col gap-2">
+                <CustomText variant="m-text-xs">{{ movie.imdbRating }}/10</CustomText>
+                <CustomText variant="dm-text-md">{{ movie.Title }}</CustomText>
+                <CustomText variant="dm-text-sm">{{ movie.Plot }}</CustomText>
+                <CustomText variant="l-text-sm">Star Cast: {{ movie.Actors }}</CustomText>
+
+                <div *ngIf="existingReview" class="mt-2 p-3 bg-gradient-input rounded-lg flex flex-col gap-1">
+                    <CustomText variant="l-text-sm" class="text-gray-200">
+                        Your Review: {{ existingReview.rating }}/10
+                    </CustomText>
+                    <CustomText variant="l-text-sm">{{ existingReview.review }}</CustomText>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <div class="flex items-center gap-2 cursor-pointer" (click)="openReviewModal()">
+                    <img src="assets/svg/star.svg" alt="star" class="w-8" />
+                    <CustomText variant="l-text-sm">{{ existingReview ? 'Edit Review' : 'Review' }}</CustomText>
+                </div>
+
+                <div class="flex items-center gap-1 cursor-pointer" (click)="toggleWatchlist()">
+                    <img src="assets/svg/bookmark.svg" alt="bookmark" class="w-8" />
+                    <CustomText variant="l-text-sm">
+                        {{ inWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist' }}
+                    </CustomText>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-review-modal [isOpen]="isReviewModalOpen" [movieTitle]="movie?.Title || ''"
+        [existingRating]="existingReview?.rating || 0" [existingReview]="existingReview?.review || ''"
+        [isEditing]="!!existingReview" (submitEvent)="onReviewSubmit($event)"
+        (closeEvent)="closeModal()"></app-review-modal>
+</div>

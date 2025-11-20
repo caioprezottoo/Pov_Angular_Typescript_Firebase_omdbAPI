@@ -1,0 +1,56 @@
+<div *ngIf="isOpen" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+    (click)="close()">
+    <div class="bg-gray-400 rounded-2xl p-6 max-w-lg w-full relative" (click)="$event.stopPropagation()">
+        <button class="absolute top-4 right-4 text-gray-100 hover:text-gray-200" (click)="close()">
+            ✕
+        </button>
+
+        <div class="mb-6 flex flex-col">
+            <CustomText variant="dm-text-md" extraClasses="mb-2">
+                {{ isEditing ? 'Edit Review' : 'Write a Review' }}
+            </CustomText>
+
+            <CustomText variant="l-text-md" extraClasses="text-gray-200">
+                {{ movieTitle }}
+            </CustomText>
+        </div>
+
+        <div class="mb-6">
+            <CustomText variant="l-text-md" extraClasses="mb-3">Your Rating</CustomText>
+
+            <div class="flex gap-2 my-2">
+                <button *ngFor="let s of stars" (mouseenter)="hovered = s" (mouseleave)="hovered = 0"
+                    (click)="setRating(s)">
+                    <svg viewBox="0 0 24 24" class="w-7 h-7"
+                        [attr.fill]="(hovered || rating) >= s ? '#fff' : 'transparent'" stroke="#fff">
+                        <path stroke-width="1"
+                            d="M12 17.3l6.18 3.64-1.64-7.03L20.5 9.5l-7.13-.62L12 2.5l-1.37 6.38L3.5 9.5l3.95 4.41-1.64 7.03L12 17.3z" />
+                    </svg>
+                </button>
+            </div>
+
+            <CustomText *ngIf="rating" variant="l-text-sm" className="mt-2 text-gray-200">
+                {{ rating }}/10
+            </CustomText>
+        </div>
+
+        <div class="mt-6">
+            <CustomText variant="l-text-md">Your Review</CustomText>
+
+            <textarea [(ngModel)]="review" maxlength="500" rows="4" placeholder="Share your thoughts..."
+                class="w-full mt-2 bg-neutral-800 border border-white/10 rounded-lg p-3 text-gray-100 resize-none placeholder:text-gray-300"></textarea>
+
+            <div class="text-right text-neutral-400 text-sm mt-1">
+                {{ review.length }}/500
+            </div>
+        </div>
+
+        <div class="flex justify-end gap-3 mt-6">
+            <CustomButton variant="secondary" (click)="close()" extraClasses="!w-20">Cancel</CustomButton>
+
+            <CustomButton variant="primary" (click)="submit()" extraClasses="!w-32">
+                {{ isEditing ? 'Update' : 'Submit' }}
+            </CustomButton>
+        </div>
+    </div>
+</div>

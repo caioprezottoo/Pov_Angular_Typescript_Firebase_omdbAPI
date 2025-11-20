@@ -1,1 +1,41 @@
-<p>explore works!</p>
+<div class="w-full flex flex-col items-center pt-5 gap-5 px-5">
+
+    <div class="flex items-center gap-3 w-full justify-center">
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-white opacity-60">
+                <img src="assets/svg/search.svg" alt="" class="w-3">
+            </span>
+
+            <input [(ngModel)]="query" type="text" class="w-62 h-9 pl-10 rounded-2xl  
+            focus:border focus:border-solid focus:border-gray-100 text-gray-100 outline-none my-2 bg-gradient-input
+            bg-clip-padding bg-transparent" />
+        </div>
+
+
+        <CustomButton (buttonClick)="handleSearchClick()" variant="tertiary"
+            extraClasses="flex items-center justify-center border cursor-pointer">
+            <img src="../../../../assets/svg/arrowblack.svg" alt="" class="w-3">
+        </CustomButton>
+    </div>
+
+    <div *ngIf="loading" class="w-full">
+        <div class="w-full h-96 rounded-lg animate-pulse bg-gray-300/40 border"></div>
+    </div>
+
+    <div *ngIf="!loading" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 w-full max-w-5xl">
+        <div *ngFor="let movie of movies" class="flex flex-col gap-2 cursor-pointer" (click)="goToMovie(movie.imdbID)">
+            <img [src]="movie.Poster" [alt]="movie.Title"
+                class="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform" />
+        </div>
+    </div>
+
+    <div *ngIf="error" class="flex-1 flex justify-center items-center flex-col gap-2">
+        <p class="text-white">{{ error }}</p>
+    </div>
+
+    <div *ngIf="!error && !loading && movies.length < 1 && query.length >= 2"
+        class="flex-1 flex justify-center items-center flex-col gap-2">
+        <p class="text-white">No results found for "{{ query }}"</p>
+    </div>
+
+</div>

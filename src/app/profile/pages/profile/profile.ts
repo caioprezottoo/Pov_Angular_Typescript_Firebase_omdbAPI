@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth, signOut, deleteUser } from '@angular/fire/auth';
-import { Firestore, doc, deleteDoc } from '@angular/fire/firestore';
+import { Auth, signOut, deleteUser, onAuthStateChanged } from '@angular/fire/auth';
+import { Firestore, doc, deleteDoc, getDoc } from '@angular/fire/firestore';
 import { CustomText } from "../../../components/text/text";
 import { CustomButton } from '../../../components/button/button';
 
@@ -12,12 +12,29 @@ import { CustomButton } from '../../../components/button/button';
   templateUrl: './profile.html',
 })
 export class Profile {
+  name: string = '';
+  email: string = '';
+  loading = true;
 
   constructor(
     private router: Router,
     private auth: Auth,
     private firestore: Firestore
   ) { }
+
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        this.email = user.email ?? '';
+        const docRef = doc(this.firestore, `Users/${user.uid}`);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          this.name = docSnap.data()['name'] ?? '';
+        }
+      }
+      this.loading = false; 
+    });
+  }
 
   goToInitialPage() {
     this.router.navigate(['']);

@@ -1,1 +1,36 @@
-<p>reviewed works!</p>
+<div class="w-full p-5 lg:p-10">
+    <div *ngIf="loading" class="w-full flex items-center justify-center p-10">
+        <CustomText variant="l-text-md">Loading your reviews...</CustomText>
+    </div>
+
+    <div *ngIf="!loading && !reviews.length" class="w-full flex items-center justify-center p-10">
+        <CustomText variant="l-text-md">You haven't reviewed any movies yet!</CustomText>
+    </div>
+
+    <div *ngIf="!loading && reviews.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div *ngFor="let review of reviews"
+            class="bg-gradient-input rounded-lg p-4 flex flex-col gap-3 hover:scale-105 transition-transform cursor-pointer"
+            (click)="goToMovie(review.movieId)">
+            <div class="flex gap-3">
+                <img [src]="review.moviePoster" [alt]="review.movieTitle" class="w-20 h-28 object-cover rounded" />
+                <div class="flex-1 flex flex-col gap-2">
+                    <CustomText variant="dm-text-sm" class="line-clamp-2">{{ review.movieTitle }}</CustomText>
+                    <div class="flex items-center gap-2">
+                        <img src="assets/svg/star.svg" class="w-5" alt="star" />
+                        <CustomText variant="l-text-md">{{ review.rating }}/10</CustomText>
+                    </div>
+                    <CustomText variant="l-text-sm" class="text-gray-200 text-xs">
+                        {{ review.createdAt?.toDate ? (review.createdAt.toDate() | date) : (review.createdAt | date) }}
+                    </CustomText>
+                </div>
+            </div>
+
+            <CustomText variant="l-text-sm" class="line-clamp-3">{{ review.review }}</CustomText>
+
+            <button (click)="deleteReview(review.id); $event.stopPropagation();"
+                class="self-end mt-2 hover:scale-110 transition-transform">
+                <img src="assets/svg/trash.svg" alt="delete" class="w-5" />
+            </button>
+        </div>
+    </div>
+</div>
